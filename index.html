@@ -1,8 +1,177 @@
 <!DOCTYPE html>
-
-<html>
-    <head>
-        <link rel="stylesheet" href="styles.css">
-    </head>
-<!-- Your HTML Here -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andrew - Student Info Card</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="card-container">
+        <!-- Background decorative elements -->
+        <div class="bg-decoration bg-decoration-1"></div>
+        <div class="bg-decoration bg-decoration-2"></div>
+        
+        <!-- Main info card -->
+        <div class="info-card" id="infoCard">
+            <!-- Accent bar at top -->
+            <div class="accent-bar"></div>
+            
+            <!-- Card content -->
+            <div class="card-content">
+                <!-- Header with avatar -->
+                <div class="header">
+                    <div class="avatar">
+                        <span class="avatar-icon">👋</span>
+                    </div>
+                    <div class="user-info">
+                        <h1 class="name">Andrew Rodriguez</h1>
+                        <p class="username">@andrx</p>
+                    </div>
+                </div>
+                
+                <!-- Info sections -->
+                <div class="info-sections">
+                    <!-- Major & Year -->
+                    <div class="tags">
+                        <div class="tag-badge">
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                                <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                            </svg>
+                            <span>Computer Science</span>
+                        </div>
+                        <div class="tag-badge">
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                            <span>Junior • 2026</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Location -->
+                    <div class="location">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                        <span>Atlanta, Georgia</span>
+                    </div>
+                    
+                    <!-- Passion section -->
+                    <div class="passion-section">
+                        <div class="passion-header">
+                            <svg class="icon heart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                            </svg>
+                            <span class="passion-label">Passionate About</span>
+                        </div>
+                        <p class="passion-text">
+                            Using technology to bridge educational gaps in underserved communities. 
+                            I believe every student deserves access to quality learning resources, 
+                            and I'm committed to building tools that make a difference.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Interactive section -->
+                <div class="interactive-section">
+                    <label class="message-label">Leave a message</label>
+                    <div class="message-input-container">
+                        <input 
+                            type="text" 
+                            id="messageInput" 
+                            class="text-input-styled" 
+                            placeholder="Say hello..."
+                        >
+                        <button id="sendButton" class="send-button">
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="22" y1="2" x2="11" y2="13"/>
+                                <polygon points="22,2 15,22 11,13 2,9"/>
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <div id="submissionMessage" class="submission-message hidden">
+                        Thanks for your message!
+                    </div>
+                </div>
+                
+                <!-- Action buttons -->
+                <div class="action-buttons">
+                    <button id="learnMoreButton" class="interactive-btn">
+                        Learn More
+                    </button>
+                    <button class="connect-btn">
+                        Connect
+                    </button>
+                </div>
+                
+                <!-- Hidden extra info -->
+                <div id="extraInfo" class="extra-info hidden">
+                    <h3 class="extra-info-title">Fun Facts</h3>
+                    <ul class="extra-info-list">
+                        <li>Amateur game developer</li>
+                        <li>Currently reading: "Design of Everyday Things"</li>
+                        <li>Coffee enthusiast & early riser</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // State management
+        let isFlipped = false;
+        
+        // DOM elements
+        const messageInput = document.getElementById('messageInput');
+        const sendButton = document.getElementById('sendButton');
+        const submissionMessage = document.getElementById('submissionMessage');
+        const learnMoreButton = document.getElementById('learnMoreButton');
+        const extraInfo = document.getElementById('extraInfo');
+        
+        // Message submission functionality
+        function handleSubmit() {
+            const message = messageInput.value.trim();
+            if (message) {
+                submissionMessage.classList.remove('hidden');
+                submissionMessage.classList.add('animate-fade-in');
+                
+                setTimeout(() => {
+                    submissionMessage.classList.add('hidden');
+                    submissionMessage.classList.remove('animate-fade-in');
+                    messageInput.value = '';
+                }, 2000);
+            }
+        }
+        
+        // Card flip functionality
+        function toggleCardFlip() {
+            isFlipped = !isFlipped;
+            
+            if (isFlipped) {
+                extraInfo.classList.remove('hidden');
+                extraInfo.classList.add('animate-fade-in');
+                learnMoreButton.textContent = 'Show Info';
+            } else {
+                extraInfo.classList.add('hidden');
+                extraInfo.classList.remove('animate-fade-in');
+                learnMoreButton.textContent = 'Learn More';
+            }
+        }
+        
+        // Event listeners
+        sendButton.addEventListener('click', handleSubmit);
+        messageInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                handleSubmit();
+            }
+        });
+        learnMoreButton.addEventListener('click', toggleCardFlip);
+    </script>
+</body>
 </html>
