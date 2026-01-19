@@ -174,13 +174,19 @@ h1, h2, h3, h4, h5, h6 {
   border: 1px solid hsl(45, 90%, 60%, 0.3);
 }
 
+.locations-container {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
 .location {
   display: flex;
   align-items: center;
   gap: 8px;
   color: var(--muted-foreground);
   font-size: 14px;
-  margin-bottom: 16px;
 }
 
 .passion-section {
@@ -311,6 +317,8 @@ h1, h2, h3, h4, h5, h6 {
   background: transparent;
   cursor: pointer;
   transition: background-color 0.3s;
+  text-decoration: none;
+  display: inline-block;
 }
 
 .connect-btn:hover {
@@ -320,9 +328,19 @@ h1, h2, h3, h4, h5, h6 {
 /* Extra info */
 .extra-info {
   margin-top: 16px;
-  padding: 16px;
+  padding: 0 16px;
   border-radius: 12px;
   background: hsl(220, 15%, 92%, 0.5);
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.extra-info.show {
+  max-height: 200px;
+  opacity: 1;
+  padding: 16px;
 }
 
 .extra-info-title {
@@ -390,10 +408,6 @@ h1, h2, h3, h4, h5, h6 {
   to {
     opacity: 1;
   }
-}
-
-.animate-fade-in {
-  animation: fadeIn 0.3s ease-out forwards;
 }
 
 /* Responsive design */
