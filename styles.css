@@ -147,6 +147,18 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
 }
 
+.username-link {
+  color: var(--muted-foreground);
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-block;
+}
+
+.username-link:hover {
+  color: var(--accent);
+  transform: translateY(-1px);
+}
+
 /* Info sections */
 .info-sections {
   margin-bottom: 24px;
