@@ -1,4 +1,4 @@
-/* Design System & CSS Variables */
+/* design system & css variables */
 :root {
   --background: hsl(220, 20%, 97%);
   --foreground: hsl(220, 30%, 15%);
@@ -15,18 +15,18 @@
   --border: hsl(220, 15%, 88%);
   --input: hsl(220, 15%, 88%);
   
-  /* Custom design tokens */
+  /* custom design tokens */
   --gradient-warm: linear-gradient(135deg, hsl(45, 90%, 60%, 0.15), hsl(35, 85%, 50%, 0.1));
   --gradient-hero: linear-gradient(180deg, hsl(220, 20%, 97%), hsl(220, 15%, 94%));
   --shadow-card: 0 25px 50px -12px hsl(220, 30%, 15%, 0.15), 0 12px 24px -8px hsl(220, 30%, 15%, 0.1);
   --shadow-card-hover: 0 35px 60px -15px hsl(220, 30%, 15%, 0.2), 0 15px 30px -10px hsl(220, 30%, 15%, 0.15);
   
-  /* Typography */
+  /* typography */
   --font-display: 'Playfair Display', serif;
   --font-body: 'Inter', sans-serif;
 }
 
-/* Reset and Base Styles */
+/* reset and base styles */
 * {
   margin: 0;
   padding: 0;
@@ -45,7 +45,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
 }
 
-/* Layout */
+/* layout */
 .card-container {
   background: var(--gradient-hero);
   min-height: 100vh;
@@ -56,7 +56,7 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
 }
 
-/* Background decorative elements */
+/* background decorative elements */
 .bg-decoration {
   position: fixed;
   pointer-events: none;
@@ -80,7 +80,7 @@ h1, h2, h3, h4, h5, h6 {
   background: hsl(45, 80%, 55%, 0.1);
 }
 
-/* Info Card */
+/* info card */
 .info-card {
   background: var(--card);
   border-radius: 16px;
@@ -107,7 +107,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: 32px;
 }
 
-/* Header */
+/* header */
 .header {
   display: flex;
   align-items: flex-start;
@@ -159,7 +159,7 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateY(-1px);
 }
 
-/* Info sections */
+/* info sections */
 .info-sections {
   margin-bottom: 24px;
   animation: fadeIn 0.8s ease-out 0.3s forwards;
@@ -231,7 +231,7 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.6;
 }
 
-/* Interactive section */
+/* interactive section */
 .interactive-section {
   padding-top: 16px;
   border-top: 1px solid var(--border);
@@ -292,7 +292,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
 }
 
-/* Action buttons */
+/* action buttons */
 .action-buttons {
   display: flex;
   gap: 12px;
@@ -337,7 +337,7 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--muted);
 }
 
-/* Extra info */
+/* extra info */
 .extra-info {
   margin-top: 16px;
   padding: 0 16px;
@@ -371,19 +371,19 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 4px;
 }
 
-/* Icons */
+/* icons */
 .icon {
   width: 16px;
   height: 16px;
   stroke-width: 2;
 }
 
-/* Utility classes */
+/* utility classes */
 .hidden {
   display: none;
 }
 
-/* Animations */
+/* animations */
 @keyframes float {
   0%, 100% {
     transform: translateY(0px);
@@ -422,7 +422,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* Responsive design */
+/* responsive design */
 @media (max-width: 480px) {
   .card-container {
     padding: 16px;
